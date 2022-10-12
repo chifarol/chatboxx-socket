@@ -5,6 +5,7 @@
  * @param boolean isMessage whether to the activity is actually a dm
  */
 async function updateDMActivity(userObj, targetUserObj, isMessage = true) {
+  let target_username = targetUserObj.username;
   // if user just visted the target user's dm page but didn't send a message (usually trigger by socket .io)
   if (!isMessage) {
     userObj.dms.forEach((e, index) => {

@@ -1,9 +1,15 @@
+const express = require("express");
+const app = express();
+const path = require("path");
 require("./connection");
 const { updateDMActivity, updateRoomActivity } = require("./utils");
 // for environment variables
 require("dotenv").config();
 // for logging requests
 const morgan = require("morgan");
+const http = require("http");
+// for logging http requests
+app.use(morgan("combined"));
 
 const { User } = require("./models.js");
 const { PORT, FT_HOST } = process.env;

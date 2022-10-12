@@ -1,10 +1,7 @@
 const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
 
 require("./connection");
 
-// const DmActivitySchema = new mongoose.Schema([Number,String])
-// const RoomActivitySchema = new mongoose.Schema([Number,String])
 const UserSchema = new mongoose.Schema({
   username: {
     type: String,
@@ -16,7 +13,6 @@ const UserSchema = new mongoose.Schema({
     lowercase: true,
     unique: true,
     required: [true, "Can't be blank"],
-    validate: [isEmail, "invalid email"],
   },
   bio: {
     type: String,
