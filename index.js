@@ -12,7 +12,7 @@ const http = require("http");
 app.use(morgan("combined"));
 
 const { User } = require("./models.js");
-const { PORT, FT_HOST } = process.env;
+const { PORT, DATA_HOST } = process.env;
 
 const { Server } = require("socket.io");
 
@@ -20,7 +20,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: FT_HOST,
+    origin: DATA_HOST,
     methods: ["GET", "POST"],
   },
 });
